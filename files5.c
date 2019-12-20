@@ -5,23 +5,20 @@ void main()
 FILE *fp1,*fp2,*fp3,*fp4;
 char ch1,ch2,ch3;
 
-fp1=fopen("f.txt","r");
-fp2=fopen("g.txt","r");
-fp3=fopen("h.txt","a");
-fp4=fopen("h.txt","r");
+fp1=fopen("data.txt","r");
+fp3=fopen("even.txt","a");
+fp4=fopen("odd.txt","w");
 while((ch1=fgetc(fp1))!=EOF)
+{
+if (ch1%2==0)
 {
 fputc(ch1,fp3);
 }
-while((ch2=fgetc(fp2))!=EOF)
+else
 {
-fputc(ch2,fp3);
+fputc(ch1,fp4);
+}
 }
 fclose(fp3);
-while((ch3=fgetc(fp4))!=EOF)
-{
-printf("%c",ch3);
-}
-fclose(fp1);
-fclose(fp2);
+fclose(fp4);
 }
