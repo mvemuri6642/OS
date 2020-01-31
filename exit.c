@@ -6,7 +6,7 @@
 int main () 
 { 
     FILE * fp; 
-    fp = fopen ("filedoesnotexist.txt", "rb"); 
+    fp = fopen ("a.txt", "rb"); 
   
     if (fp == NULL) 
     { 
@@ -14,16 +14,15 @@ int main ()
         printf("Error opening the file: %s\n", 
                              strerror(errno)); 
         perror("Error printed by perror"); 
-  
-        exit(EXIT_FAILURE); 
-        printf("I will not be printed\n"); 
+  	
+        exit(EXIT_FAILURE);
     } 
   
     else
     { 
         fclose (fp); 
-        exit(EXIT_SUCCESS); 
-        printf("I will not be printed\n"); 
+	printf("file found");
+        exit(EXIT_SUCCESS);
     } 
     return 0; 
 } 
